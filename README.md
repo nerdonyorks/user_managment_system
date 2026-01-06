@@ -60,6 +60,8 @@ Views → Server-side rendered EJS templates
 
 Public → Static assets (CSS & JS)
 
+
+
 📁 Project Structure
 user-management-system/
 ├── src/
@@ -81,6 +83,11 @@ user-management-system/
 ├── .env                     # Environment variables
 ├── package.json
 └── README.md
+
+
+
+
+
 
 ⚙️ Tech Stack
 Backend
