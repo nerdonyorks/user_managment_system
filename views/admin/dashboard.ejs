@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - User Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar admin-nav">
+    <div class="nav-container">
+      <h2>Admin Panel</h2>
+      <div class="nav-links">
+        <a href="/admin/dashboard" style="color: white;" >Dashboard</a>
+        <a href="/admin/users">Manage Users</a>
+        <a href="/admin/logout" class="btn btn-outline">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 style="color: white;">Dashboard</h1>
+    <br>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Users</h3>
+        <p class="stat-number"><%= stats.total %></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Recent Users</h2>
+        <a href="/admin/users" class="btn btn-primary">View All</a>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (recentUsers.length > 0) { %>
+            <% recentUsers.forEach(user => { %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= new Date(user.createdAt).toLocaleDateString() %></td>
+              </tr>
+            <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="4" style="text-align: center;">No users found</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    // Prevent back button navigation
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+        window.history.go(1);
+    };
+  </script>
+</body>
+</html>

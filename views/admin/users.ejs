@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - User Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar admin-nav">
+    <div class="nav-container">
+      <h2>Admin Panel</h2>
+      <div class="nav-links">
+        <a href="/admin/dashboard">Dashboard</a>
+        <a href="/admin/users">Manage Users</a>
+        <a href="/admin/logout" class="btn btn-outline">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Manage Users</h1>
+      <button onclick="showCreateModal()" class="btn btn-outline" style="border-color: white; color: white;">+ Add User</button>
+    </div>
+
+    <div class="filters">
+      <form action="/admin/users" method="GET" class="filter-form">
+        <input 
+          type="text" 
+          name="search" 
+          placeholder="Search users..." 
+          value="<%= search %>"
+          class="search-input"
+        >
+        
+        <button type="submit" class="btn btn-outline">Search</button>
+        <a href="/admin/users" class="btn btn-secondary">Clear</a>
+      </form>
+    </div>
+
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Joined</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (users.length > 0) { %>
+            <% users.forEach(user => { %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone || '-' %></td>
+                <td><%= new Date(user.createdAt).toLocaleDateString() %></td>
+                <td>
+                  <button onclick="editUser('<%= user._id %>')" class="btn-icon" title="Edit">✏️</button>
+                  <button onclick="deleteUser('<%= user._id %>', '<%= user.name %>')" class="btn-icon" title="Delete">🗑️</button>
+                </td>
+              </tr>
+            <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="7" style="text-align: center;">No users found</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Create/Edit Modal -->
+  <div id="userModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Add User</h2>
+      
+      <form id="userForm" class="modal-form">
+        <input type="hidden" id="userId">
+        
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" >
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters">
+          <small id="passwordHelp">Leave blank to keep current password</small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Prevent back button navigation
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+        window.history.go(1);
+    };
+  </script>
+</body>
+</html>

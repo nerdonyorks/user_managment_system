@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - User Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="auth-card">
+      <h1><%= title %></h1>
+      <div class="alert alert-error" style="margin-top: 1.5rem;">
+        <%= message %>
+      </div>
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="/auth/logout" class="btn btn-primary">Go to Login</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

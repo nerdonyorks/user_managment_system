@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - User Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h2>User Portal</h2>
+      <div class="nav-links">
+        <a href="/auth/logout" class="btn btn-outline">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="gradient-title">Welcome, <%= user.name %></h1>
+
+
+  </div>
+  <div class="container">
+    <div class="dashboard">
+      <div class="card">
+        <h2>Your Profile</h2>
+        
+        <div class="profile-info">
+          <div class="info-row">
+            <span class="label">Name:</span>
+            <span class="value"><%= user.name %></span>
+          </div>
+
+          <div class="info-row">
+            <span class="label">Email:</span>
+            <span class="value"><%= user.email %></span>
+          </div>
+
+          <% if (user.phone) { %>
+          <div class="info-row">
+            <span class="label">Phone:</span>
+            <span class="value"><%= user.phone %></span>
+          </div>
+          <% } %>
+
+          <div class="info-row">
+            <span class="label">Member Since:</span>
+            <span class="value"><%= new Date(user.createdAt).toLocaleDateString() %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Prevent back button navigation
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+        window.history.go(1);
+    };
+  </script>
+</body>
+</html>
