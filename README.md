@@ -154,7 +154,8 @@ Ensure MongoDB is running locally or update MONGODB_URI.
 
 3️⃣ Run the App
 ```
-npm run dev
+npm run dev //for developer 
+npm start  //for normal user
 ```
 
 Open:
@@ -167,9 +168,9 @@ http://localhost:3000
 ⚠️ Change after first login
 ```
 
-Email: admin@admin.com
+Email: admin@gmail.com
 
-Password: Admin@123
+Password: Admin123
 ```
 🛡️ Middleware Usage
 Middleware	Purpose
