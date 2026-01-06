@@ -6,41 +6,41 @@ A full-stack User Management System built with Node.js, Express, MongoDB, and EJ
 ✨ Key Features
 🔐 Authentication
 
-User Signup & Login
+=> User Signup & Login
 
-Admin Login (separate flow)
+=> Admin Login (separate flow)
 
-Secure session-based authentication
+=> Secure session-based authentication
 
-Password hashing using bcrypt
+=> Password hashing using bcrypt
 
-Protected routes using middleware
+=> Protected routes using middleware
 
-👤 User Module
+=> 👤 User Module
 
-User registration
+=> User registration
 
-User login
+=> User login
 
-User home screen
+=> User home screen
 
-Profile access
+=> Profile access
 
-Session-based access control
+=> Session-based access control
 
-🛠️ Admin Module
+=> 🛠️ Admin Module
 
-Admin login
+=> Admin login
 
-Admin dashboard
+=> Admin dashboard
 
-View all users
+=> View all users
 
-Create, update, delete users
+=> Create, update, delete users
 
-Search users
+=> Search users
 
-Admin-only route protection
+=> Admin-only route protection
 
 🧱 Architecture Overview
 MVC + Service Layer Architecture
@@ -143,30 +143,34 @@ NODE_ENV=development
 
 🚀 Installation & Setup
 1️⃣ Clone & Initialize
+```
 git clone https://github.com/your-username/user-management-system.git
 cd user-management-system
 npm install
+```
 
 2️⃣ Start MongoDB
-
 Ensure MongoDB is running locally or update MONGODB_URI.
 
 3️⃣ Run the App
+```
 npm run dev
-
+```
 
 Open:
+```
 
 http://localhost:3000
-
+```
 🔐 Default Admin Credentials
 
 ⚠️ Change after first login
+```
 
 Email: admin@admin.com
 
 Password: Admin@123
-
+```
 🛡️ Middleware Usage
 Middleware	Purpose
 authMiddleware	Protect routes & validate roles
@@ -176,22 +180,23 @@ express-validator	Input validation
 📌 API Routes
 🔐 Authentication
 Method	Route	Description
-POST	/auth/signup	User registration
-POST	/auth/login	User login
-GET	/auth/logout	Logout
+  POST	/auth/signup	User registration
+  POST	/auth/login	User login
+  GET	/auth/logout	Logout
 👤 User Routes
 Method	Route	Description
-GET	/user/home	User home screen
-GET	/user/profile	User profile
+  GET	/user/home	User home screen
+  GET	/user/profile	User profile
 🛠️ Admin Routes
 Method	Route	Description
-POST	/admin/login	Admin login
-GET	/admin/dashboard	Admin dashboard
-GET	/admin/users	List users
-POST	/admin/users	Create user
-PUT	/admin/users/:id	Update user
-DELETE	/admin/users/:id	Delete user
-GET	/admin/users/search	Search users
+  POST	/admin/login	Admin login
+  GET	/admin/dashboard	Admin dashboard
+  GET	/admin/users	List users
+  POST	/admin/users	Create user
+  PUT	/admin/users/:id	Update user
+  DELETE	/admin/users/:id	Delete user
+  GET	/admin/users/search	Search users
+
 🧪 Validation & Error Handling
 
 Server-side input validation using express-validator
@@ -214,12 +219,12 @@ Environment-based configs
 
 🖥️ Views (EJS)
 Page	Description
-login.ejs	User login
-signup.ejs	User registration
-home.ejs	User home
-admin/login.ejs	Admin login
-admin/dashboard.ejs	Admin panel
-admin/users.ejs	User management
+  login.ejs	User login
+  signup.ejs	User registration
+  home.ejs	User home
+  admin/login.ejs	Admin login
+  admin/dashboard.ejs	Admin panel
+  admin/users.ejs	User management
 🔮 Future Improvements
 
 JWT support (stateless auth)
