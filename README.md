@@ -60,33 +60,52 @@ Views → Server-side rendered EJS templates
 
 Public → Static assets (CSS & JS)
 
+## 📁 Project Structure
 
-
-📁 Project Structure
+```text
 user-management-system/
 ├── src/
-│   ├── config/              # Database configuration
-│   ├── models/              # Mongoose schemas
-│   ├── controllers/         # Request handlers
-│   ├── services/            # Business logic
-│   ├── middleware/          # Auth, logger, error handling
-│   ├── routes/              # Express routes
-│   ├── utils/               # Validators & helpers
-│   └── app.js               # Express app config
-│
-├── public/                  # Static assets
-├── views/                   # EJS templates
-│   ├── admin/               # Admin pages
-│   └── *.ejs
-│
-├── server.js                # Entry point
-├── .env                     # Environment variables
+│   ├── config/
+│   │   └── database.js
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Admin.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── userController.js
+│   │   └── adminController.js
+│   ├── services/
+│   │   ├── AuthService.js
+│   │   └── UserService.js
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   ├── loggerMiddleware.js
+│   │   └── errorHandler.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── userRoutes.js
+│   │   └── adminRoutes.js
+│   ├── utils/
+│   │   └── validators.js
+│   └── app.js
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── main.js
+├── views/
+│   ├── login.ejs
+│   ├── signup.ejs
+│   ├── home.ejs
+│   └── admin/
+│       ├── login.ejs
+│       ├── dashboard.ejs
+│       └── users.ejs
+├── server.js
+├── .env
+├── .gitignore
 ├── package.json
 └── README.md
-
-
-
-
 
 
 ⚙️ Tech Stack
