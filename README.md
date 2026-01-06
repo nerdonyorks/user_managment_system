@@ -106,7 +106,7 @@ user-management-system/
 ├── .gitignore
 ├── package.json
 └── README.md
-
+```
 
 ⚙️ Tech Stack
 Backend
