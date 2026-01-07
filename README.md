@@ -221,12 +221,19 @@ Environment-based configs
 
 🖥️ Views (EJS)
 Page	Description
+
   login.ejs	User login
+
   signup.ejs	User registration
+  
   home.ejs	User home
+  
   admin/login.ejs	Admin login
+  
   admin/dashboard.ejs	Admin panel
+  
   admin/users.ejs	User management
+
 🔮 Future Improvements
 
 JWT support (stateless auth)
