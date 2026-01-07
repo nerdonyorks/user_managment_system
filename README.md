@@ -173,13 +173,14 @@ Email: admin@gmail.com
 Password: Admin123
 ```
 🛡️ Middleware Usage
-Middleware	Purpose
-authMiddleware	Protect routes & validate roles
-loggerMiddleware	Request logging
-errorHandler	Centralized error handling
-express-validator	Input validation
-📌 API Routes
-🔐 Authentication
+Middleware	Purpose  
+authMiddleware	Protect routes & validate roles  
+loggerMiddleware	Request logging  
+errorHandler	Centralized error handling  
+express-validator	Input validation  
+📌 API Routes  
+🔐 Authentication  
+```
 Method	Route	Description
   POST	/auth/signup	User registration
   POST	/auth/login	User login
@@ -197,7 +198,7 @@ Method	Route	Description
   PUT	/admin/users/:id	Update user
   DELETE	/admin/users/:id	Delete user
   GET	/admin/users/search	Search users
-
+```
 🧪 Validation & Error Handling
 
 Server-side input validation using express-validator
