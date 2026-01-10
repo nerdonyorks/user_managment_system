@@ -244,7 +244,7 @@ Password reset
 
 Email verification
 
-Audit logs
+Audit logs.
 
 Rate limiting
 
